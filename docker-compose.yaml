@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  auth:
+    image: i211221/auth
+    ports:
+      - "12210:3000"
+    networks:
+      - my-network
+
+  classrooms:
+    image: i211221/classrooms
+    ports:
+      - "12211:3001"
+    networks:
+      - my-network
+
+  client:
+    image: i211221/client
+    ports:
+      - "12212:3002"
+    networks:
+      - my-network
+
+  event-bus:
+    image: i211221/event-bus
+    ports:
+      - "12213:3003"
+    networks:
+      - my-network
+
+  post:
+    image: i211221/post
+    ports:
+      - "12214:3004"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
